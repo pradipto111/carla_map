@@ -1,0 +1,68 @@
+cmake_minimum_required(VERSION 3.0.2)
+project(stitch_pkg)
+
+set(CMAKE_CXX_STANDARD 14)
+set(CMAKE_CXX_STANDARD_REQUIRED ON)
+
+# use C++11
+add_compile_options(-std=c++11)
+
+# Find catkin macros and libraries
+find_package(catkin REQUIRED COMPONENTS
+  roscpp
+  sensor_msgs
+)
+
+###################################
+## catkin specific configuration ##
+###################################
+catkin_package(
+  INCLUDE_DIRS
+  CATKIN_DEPENDS
+    roscpp
+    sensor_msgs
+)
+
+###########
+## Build ##
+###########
+
+find_package(PCL 1.10 REQUIRED COMPONENTS common io)
+
+
+include_directories(
+  include
+  ${catkin_INCLUDE_DIRS}
+  ${PCL_INCLUDE_DIRS}
+)
+
+link_directories(${PCL_LIBRARY_DIRS})
+add_definitions(${PCL_DEFINITIONS})
+
+# Declare a C++ executable
+add_executable(${PROJECT_NAME}
+  src/stitch_pcd.cpp
+)
+
+# Specify libraries to link a library or executable target against
+target_link_libraries(${PROJECT_NAME}
+  ${catkin_LIBRARIES}
+  ${PCL_LIBRARIES}
+)
+
+#############
+## Install ##
+#############
+
+# Mark executables for installation
+install(TARGETS ${PROJECT_NAME}
+  RUNTIME DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION}
+)
+
+
+
+# Mark other files for installation (e.g. launch and bag files, etc.)
+# install(DIRECTORY launch config rviz
+#   DESTINATION ${CATKIN_PACKAGE_SHARE_DESTINATION}
+# )
+
