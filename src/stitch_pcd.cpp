@@ -62,8 +62,8 @@ int main(int argc, char** argv)
 	tf_publisher = nh.advertise<geometry_msgs::TransformStamped>("/tf_data",10);
 	ros::Subscriber tf_subscriber = nh.subscribe("/tf", 1, tf_callback);
 	
-	curr_cloud_publisher = nh.advertise<sensor_msgs::PointCloud2>("/transformed_pcl", 10);
-	original_cloud_publisher = nh.advertise<sensor_msgs::PointCloud2>("/untransformed_pcl", 10);
+	//curr_cloud_publisher = nh.advertise<sensor_msgs::PointCloud2>("/transformed_pcl", 10);
+	//original_cloud_publisher = nh.advertise<sensor_msgs::PointCloud2>("/untransformed_pcl", 10);
 	
 	
 	ros::Subscriber pcl_subscriber = nh.subscribe("/carla/vehicle/086/lidar/front/point_cloud", 1, pcl_callback);
