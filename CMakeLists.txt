@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.0.2)
-project(stitch_pkg)
+project(carla_map)
 
 set(CMAKE_CXX_STANDARD 14)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
@@ -11,6 +11,8 @@ add_compile_options(-std=c++11)
 find_package(catkin REQUIRED COMPONENTS
   roscpp
   sensor_msgs
+  pcl_ros
+  tf2_ros
 )
 
 ###################################
@@ -21,13 +23,15 @@ catkin_package(
   CATKIN_DEPENDS
     roscpp
     sensor_msgs
+    tf2_msgs
+    pcl_ros
 )
 
 ###########
 ## Build ##
 ###########
 
-find_package(PCL 1.10 REQUIRED COMPONENTS common io)
+find_package(PCL)
 
 
 include_directories(

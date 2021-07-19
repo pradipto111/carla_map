@@ -1,8 +1,8 @@
 <?xml version="1.0"?>
 <package format="2">
-  <name>stitch_pkg</name>
+  <name>carla_map</name>
   <version>0.0.0</version>
-  <description>The stitch_pkg package</description>
+  <description>The carla_map package</description>
 
   <!-- One maintainer tag required, multiple allowed, one person per tag -->
   <!-- Example:  -->
@@ -51,12 +51,18 @@
   <buildtool_depend>catkin</buildtool_depend>
   <build_depend>roscpp</build_depend>
   <build_depend>sensor_msgs</build_depend>
+   <build_depend>pcl_ros</build_depend>
+   <build_depend>tf2_ros</build_depend>
   <build_export_depend>roscpp</build_export_depend>
   <build_export_depend>sensor_msgs</build_export_depend>
   <build_export_depend>tf2_msgs</build_export_depend>
+    <build_export_depend>pcl_ros</build_export_depend>
+    <build_export_depend>tf2_ros</build_export_depend>
   <exec_depend>roscpp</exec_depend>
   <exec_depend>sensor_msgs</exec_depend>
   <exec_depend>tf2_msgs</exec_depend>
+    <exec_depend>pcl_ros</exec_depend>
+    <exec_depend>tf2_ros</exec_depend>
   
 
 
