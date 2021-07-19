@@ -68,5 +68,6 @@ int main(int argc, char** argv)
 	
 	ros::Subscriber pcl_subscriber = nh.subscribe("/carla/vehicle/086/lidar/front/point_cloud", 1, pcl_callback);
 	ros::spin();
+	pcl::io::savePCDFileASCII ("final_pcd.pcd", final_cloud);
 	return 0;
 }
